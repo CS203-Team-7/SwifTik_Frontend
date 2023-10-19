@@ -1,24 +1,48 @@
 import React from "react";
+import "../css/main.css";
+import "../css/poster.css"
 
-const Main = () => {
+export const Main = () => {
     return (
-        <div className="main">
-            <div className="col">
-            <h2>Concerts</h2>
-            <p>HERE ARE LATEST TAYTAY CONCERTS view all click cool button!</p>
-            <button>View All</button>
+        <div className="event-page">
+            <div className="label">
+                <div className="text-wrapper">Upcoming Concerts</div>
             </div>
-            <div className="col">
-                <div className="card card1"></div>
-                <div className="card card2"></div>
-                <div className="card card3"></div>
-                <div className="card card4"></div>
-                {/* <div className="card card5"></div>
-                <div className="card card6"></div> */}
+            <div className="row">
+                {/* poster 1 */}
+                <div className="poster">
+                    <div className="taylor-swift-the">
+                        Taylor Swift: The Eras
+                        <br />
+                        Tour
+                    </div>
+                </div>
+                {/* poster 2 */}
+                <div className="poster">
+                    <div className="taylor-swift-the">
+                        <>
+                            Ed Sheeran: Autumn
+                            <br />
+                            Variations
+                        </>
+                    </div>
+                </div>
+
+                {/* poster 3 */}
+                <div className="poster">
+                    <div className="taylor-swift-the">
+                        <>
+                            Rick Astley: Never
+                            <br />
+                            Gonna Give You Up
+                        </>
+                    </div>
+                </div>
+                {/* <img className="account-circle" alt="Account circle" src="account-circle.png" />
+          <img className="help" alt="Help" src="help.png" /> */}
             </div>
-            
         </div>
     );
-}
+};
 
 export default Main;

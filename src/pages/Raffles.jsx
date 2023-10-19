@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
+import "../css/raffles.css"
 
 const Raffles = () => {
     const [currentraffles] = useState([

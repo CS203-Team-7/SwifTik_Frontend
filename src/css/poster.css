@@ -1,0 +1,39 @@
+.poster {
+    background-image: url(https://m.media-amazon.com/images/I/61DwOZyChAL._AC_UF894,1000_QL80_.jpg);
+    background-size: 100% 100%;
+    height: 462px;
+    position: relative;
+    width: 364px;
+  }
+  
+  .poster .taylor-swift-the {
+    color: #ffffff;
+    font-family: "Spline Sans Mono-Regular", Helvetica;
+    font-size: 25px;
+    font-weight: 400;
+    left: 9px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 383px;
+  }
+  
+  .poster-2 {
+    background-image: url(https://m.media-amazon.com/images/I/61DwOZyChAL._AC_UF894,1000_QL80_.jpg) !important;
+    left: 525px !important;
+    position: absolute !important;
+    top: 296px !important;
+  }
+  
+.poster-3 {
+    background-image: url(https://m.media-amazon.com/images/I/61DwOZyChAL._AC_UF894,1000_QL80_.jpg) !important;
+    left: 966px !important;
+    position: absolute !important;
+    top: 296px !important;
+  }
+
+  .poster {
+    border-radius: 10px; /* Adjust the value to control the roundness */
+    margin: 0.5rem;
+    padding: 1rem;
+  }

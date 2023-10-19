@@ -1,0 +1,51 @@
+.header .navigation {
+    list-style: none;
+}
+
+.header .navigation ul li {
+    display: inline-block;
+    /* margin-left: 20px; */
+    padding: 10px 40px;
+}
+
+.header .navigation ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* Swiftik logo */
+.logo {
+    width: 169px;
+    height: 75px;
+    left: 80px;
+    top: 27px;
+}
+
+.logo h1 {
+
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    font-family: 'Yesteryear';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 73px;
+
+    color: #FFFFFF;
+}
+
+/* header */
+.header{
+    width: 100%;
+    height: 120px;
+    background-color: #97daeb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+  }
