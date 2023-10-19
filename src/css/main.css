@@ -4,26 +4,7 @@
     align-items: center;
   }
   
-/* upcoming concerts */
-  label {
-    text-align: left;
-    padding: 0.25rem 0;
-  }
 
-  .label .text-wrapper {
-    color: #2c1616;
-    font-family: "Spline Sans Mono-Regular", Helvetica;
-    font-size: 45px;
-    font-weight: 400;
-    left: 42px;
-    letter-spacing: 0;
-    line-height: normal;
-    top: 0px;
-    white-space: nowrap;
-    position: relative;
-    text-align: left;
-  }
-  
   input {
     margin: 0.5rem 0;
     padding: 1rem;
@@ -45,8 +26,11 @@
     height: 100%;
   }
 
-  .row.heading {
+  .label {
     text-align: left; /* Align text to the left within this container */
+    margin-left: 2rem;
+    margin-top: 1rem;
+    font-size: 24px
   }
   
    .row{

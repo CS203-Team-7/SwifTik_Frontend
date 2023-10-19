@@ -5,8 +5,8 @@ import "../css/poster.css"
 export const Main = () => {
     return (
         <div className="event-page">
-            <div className="label">
-                <div className="text-wrapper">Upcoming Concerts</div>
+        <div className="label">
+                <h3>Current Raffles</h3>
             </div>
             <div className="row">
                 {/* poster 1 */}
