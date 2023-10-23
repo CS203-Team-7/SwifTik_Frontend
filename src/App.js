@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import OtpPage from './components/Otp';
 import Raffles from './pages/Raffles';
+import SeatMap from './pages/SeatMap';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="home" element={<Home />} />
         <Route path="/otp" element={<OtpPage />} />
         <Route path="raffles" element={<Raffles />} />
+        <Route path="seatmap" element={<SeatMap />} />
       </Routes>
     </div>
   );
