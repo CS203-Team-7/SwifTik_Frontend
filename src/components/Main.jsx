@@ -6,7 +6,7 @@ export const Main = () => {
     return (
         <div className="event-page">
         <div className="label">
-                <h3>Current Raffles</h3>
+                <h3>Current events</h3>
             </div>
             <div className="row">
                 {/* poster 1 */}
