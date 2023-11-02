@@ -12,7 +12,7 @@ const CustomAlert = ({ zone, onClose }) => {
                 <text>Proceed?</text>
                 <br></br>
                 <div className="button-container">
-                    <button onClick={onClose} className="proceed-button">Proceed</button> {/*We need to add a handleProceedAlert in SeatMap.jsx for when we click the proceed button*/}
+                    <button onClick={onClose} className="proceed-button">Enter Raffle</button> {/*We need to add a handleProceedAlert in SeatMap.jsx for when we click the proceed button*/}
                     <button onClick={onClose} className="close-button">Close</button>
                 </div>
             </div>
