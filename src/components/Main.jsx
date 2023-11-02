@@ -11,30 +11,24 @@ export const Main = () => {
             <div className="row">
                 {/* poster 1 */}
                 <div className="poster">
-                    <div className="taylor-swift-the">
-                        Taylor Swift: The Eras
-                        <br />
-                        Tour
+                    <div className="name">
+                        Taylor Swift: The Eras Tour
                     </div>
                 </div>
                 {/* poster 2 */}
-                <div className="poster">
-                    <div className="taylor-swift-the">
+                <div className="poster-2">
+                    <div className="name">
                         <>
-                            Ed Sheeran: Autumn
-                            <br />
-                            Variations
+                            Ed Sheeran: +–=÷x Tour
                         </>
                     </div>
                 </div>
 
                 {/* poster 3 */}
-                <div className="poster">
-                    <div className="taylor-swift-the">
+                <div className="poster-3">
+                    <div className="name">
                         <>
-                            Rick Astley: Never
-                            <br />
-                            Gonna Give You Up
+                            Harry Styles: Love On Tour
                         </>
                     </div>
                 </div>

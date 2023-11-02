@@ -1,39 +1,70 @@
 .poster {
-    background-image: url(https://m.media-amazon.com/images/I/61DwOZyChAL._AC_UF894,1000_QL80_.jpg);
-    background-size: 100% 100%;
-    height: 462px;
-    position: relative;
-    width: 364px;
-  }
-  
-  .poster .taylor-swift-the {
-    color: #ffffff;
-    font-family: "Spline Sans Mono-Regular", Helvetica;
-    font-size: 25px;
-    font-weight: 400;
-    left: 9px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 383px;
-  }
-  
-  .poster-2 {
-    background-image: url(https://m.media-amazon.com/images/I/61DwOZyChAL._AC_UF894,1000_QL80_.jpg) !important;
-    left: 525px !important;
-    position: absolute !important;
-    top: 296px !important;
-  }
-  
-.poster-3 {
-    background-image: url(https://m.media-amazon.com/images/I/61DwOZyChAL._AC_UF894,1000_QL80_.jpg) !important;
-    left: 966px !important;
-    position: absolute !important;
-    top: 296px !important;
-  }
+  background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dc123747-ce05-4205-8de2-5812937f4af9/dfcfphv-c64569f2-cc7c-4d96-b819-c15007364c31.jpg/v1/fill/w_755,h_1058,q_70,strp/taylor_swift__lover__poster_2_by_rodrigomndzz_dfcfphv-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTc5MyIsInBhdGgiOiJcL2ZcL2RjMTIzNzQ3LWNlMDUtNDIwNS04ZGUyLTU4MTI5MzdmNGFmOVwvZGZjZnBodi1jNjQ1NjlmMi1jYzdjLTRkOTYtYjgxOS1jMTUwMDczNjRjMzEuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.9aS1yUXZQknmvGp7LSDDpYKy4q866UdRLADLSp5Nmgc);
+  background-size: 100% 100%;
+  height: 462px;
+  position: relative;
+  width: 364px;
+  border-radius: 10px; /* Adjust the value to control the roundness */
+  margin: 1rem;
+  padding: 1rem;
+}
 
-  .poster {
-    border-radius: 10px; /* Adjust the value to control the roundness */
-    margin: 1rem;
-    padding: 1rem;
-  }
+.name {
+  color: #ffffff;
+  font-family: "Spline Sans Mono-Regular", Helvetica;
+  font-size: 25px;
+  font-weight: 400;
+  left: 0px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  top: 408px;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.2s;
+}
+
+.poster:hover {
+  transform: scale(1.05); /* Add a hover effect to scale the poster */
+}
+
+.poster:hover .name {
+  opacity: 1; /* Show the name on hover */
+}
+
+.poster-2 {
+  background-image: url(https://i.ebayimg.com/images/g/FcgAAOSwnnti~Pv~/s-l1200.webp);
+  background-size: 100% 100%;
+  height: 462px;
+  position: relative;
+  width: 364px;
+  border-radius: 10px; /* Adjust the value to control the roundness */
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.poster-2:hover {
+  transform: scale(1.05); /* Add a hover effect to scale the poster */
+}
+
+.poster-2:hover .name {
+  opacity: 1; /* Show the name on hover */
+}
+
+.poster-3 {
+background-image: url(https://upload.wikimedia.org/wikipedia/en/9/90/LoveOnTourPoster.png);
+background-size: 100% 100%;
+height: 462px;
+position: relative;
+width: 364px;
+border-radius: 10px; /* Adjust the value to control the roundness */
+margin: 1rem;
+padding: 1rem;
+}
+
+.poster-3:hover {
+  transform: scale(1.05); /* Add a hover effect to scale the poster */
+}
+
+.poster-3:hover .name {
+  opacity: 1; /* Show the name on hover */
+}
