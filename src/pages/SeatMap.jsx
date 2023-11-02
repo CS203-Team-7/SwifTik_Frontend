@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import CustomAlert from "../components/CustomAlert";
+import Footer from "../components/Footer";
 
 const SeatMap = () => {
     const [availableZones] = useState([
@@ -52,6 +53,7 @@ const SeatMap = () => {
             {selectedZone && (
                 <CustomAlert zone={selectedZone} onClose={handleCloseAlert} />
             )}
+            <Footer /> 
         </div>
     );
 };
