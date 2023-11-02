@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import OtpPage from './components/Otp';
 import Raffles from './pages/Raffles';
 import Tickets from './pages/Tickets';
+import SeatMap from './pages/SeatMap';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/otp" element={<OtpPage />} />
         <Route path="raffles" element={<Raffles />} />
         <Route path="tickets" element={<Tickets />} />
+        <Route path="seatmap" element={<SeatMap />} />
       </Routes>
     </div>
   );
