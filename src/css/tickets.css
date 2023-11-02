@@ -1,0 +1,37 @@
+.row.heading {
+    text-align: left; /* Align text to the left within this container */
+  }
+  
+   .row{
+    display: flex;
+    margin: -15pxpx;
+   }
+  
+   .tickets > .row{
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    margin: 1rem;
+    display: flex;
+   }
+  
+   /* for hovering */
+   .ticket-container {
+    position: relative;
+  }
+  
+  .ticket-info {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .ticket-container:hover .ticket-info {
+    display: block;
+  }
+  

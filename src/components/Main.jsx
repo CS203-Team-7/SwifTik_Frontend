@@ -1,24 +1,42 @@
 import React from "react";
+import "../css/main.css";
+import "../css/poster.css"
 
-const Main = () => {
+export const Main = () => {
     return (
-        <div className="main">
-            <div className="col">
-            <h2>Concerts</h2>
-            <p>HERE ARE LATEST TAYTAY CONCERTS view all click cool button!</p>
-            <button>View All</button>
+        <div className="event-page">
+        <div className="label">
+                <h3>Current events</h3>
             </div>
-            <div className="col">
-                <div className="card card1"></div>
-                <div className="card card2"></div>
-                <div className="card card3"></div>
-                <div className="card card4"></div>
-                {/* <div className="card card5"></div>
-                <div className="card card6"></div> */}
+            <div className="row">
+                {/* poster 1 */}
+                <div className="poster">
+                    <div className="name">
+                        Taylor Swift: The Eras Tour
+                    </div>
+                </div>
+                {/* poster 2 */}
+                <div className="poster-2">
+                    <div className="name">
+                        <>
+                            Ed Sheeran: +–=÷x Tour
+                        </>
+                    </div>
+                </div>
+
+                {/* poster 3 */}
+                <div className="poster-3">
+                    <div className="name">
+                        <>
+                            Harry Styles: Love On Tour
+                        </>
+                    </div>
+                </div>
+                {/* <img className="account-circle" alt="Account circle" src="account-circle.png" />
+          <img className="help" alt="Help" src="help.png" /> */}
             </div>
-            
         </div>
     );
-}
+};
 
 export default Main;

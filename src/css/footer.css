@@ -1,0 +1,38 @@
+footer {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-size: 48px;
+}
+
+.social-media-icons {
+    float: left;
+}
+
+.help-icon {
+    float: right;
+    position: relative; /* Add this to make the tooltip positioning relative */
+}
+
+.help-icon > svg {
+    cursor: pointer; /* Change the cursor to a pointer when hovering the help icon */
+}
+
+.help-icon > span {
+    visibility: hidden;
+    width: 160px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 100%; /* Position it below the icon */
+    left: 50%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+}
+
+.help-icon:hover > span {
+    visibility: visible; /* Show the tooltip when hovering over the icon */
+}

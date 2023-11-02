@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/header.css";
 
 const Header = () => {
     return (
@@ -10,8 +11,7 @@ const Header = () => {
                 <ul>
                     <li><a href="/home">Home</a></li>
                     <li><a href="/raffles">Raffles</a></li>
-                    <li><a href="/">Login</a></li>
-                    <li><a href="/register">Register</a></li>
+                    <li><a href="/tickets">My Tickets</a></li>
                 </ul>
             </nav>
             <div className="search">
@@ -22,4 +22,5 @@ const Header = () => {
 }
 
 export default Header;
+
 

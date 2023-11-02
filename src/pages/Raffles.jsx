@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
+import "../css/raffles.css"
+import Footer from "../components/Footer";
 
 const Raffles = () => {
     const [currentraffles] = useState([
@@ -15,7 +17,7 @@ const Raffles = () => {
             EventDate: '03/06/2025',
             RaffleNumber: '6',
             Status: 'Ongoing',
-            Picture: 'https://upload.wikimedia.org/wikipedia/en/3/33/The_Eras_Tour_poster.jpg'
+            Picture: 'https://res.klook.com/image/upload/x_0,y_32,w_420,h_588,c_crop/c_scale,w_360/v1698305850/events_admin/vedhrre7fvupnnq2m8wd.jpg'
         },
     ]);//temporary hardcoded data
 
@@ -29,7 +31,7 @@ const Raffles = () => {
             <div className="row">
                 {currentraffles.map((raffle, index) => (
                     <div className="raffle-container" key={index}>
-                        <img src={raffle.Picture} alt="raffle" />
+                        <img src={raffle.Picture} style={{ width: '258px', height: '367px' }} alt="raffle" />
                         <div className="raffle-info"> {/*this is the info that will be displayed on the raffle card when hovering*/}
                             <p>Zone: {raffle.Zone}</p>
                             <p>Event Date: {raffle.EventDate}</p>
@@ -39,6 +41,7 @@ const Raffles = () => {
                     </div>
                 ))}
             </div>
+            <Footer />   
         </div>
     );
 };
