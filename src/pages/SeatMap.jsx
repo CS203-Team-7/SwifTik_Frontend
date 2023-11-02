@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
+import CustomAlert from "../components/CustomAlert";
 
 const SeatMap = () => {
     const [availableZones] = useState([
@@ -17,9 +18,14 @@ const SeatMap = () => {
         },
     ]);//temporary hardcoded data
 
+    const [selectedZone, setSelectedZone] = useState(null);
+
     const handleZoneButtonClick = (zone) => {
-        // Define what happens when the button is clicked here
-        alert(`Zone button clicked for ${zone.Zone}`);
+        setSelectedZone(zone);
+    };
+
+    const handleCloseAlert = () => {
+        setSelectedZone(null);
     };
 
     return (
@@ -43,6 +49,9 @@ const SeatMap = () => {
                     </button>
                 ))}
             </div>
+            {selectedZone && (
+                <CustomAlert zone={selectedZone} onClose={handleCloseAlert} />
+            )}
         </div>
     );
 };
