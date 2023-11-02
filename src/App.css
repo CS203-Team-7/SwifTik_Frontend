@@ -218,5 +218,12 @@ button {
   border:#000000 1px solid;
   text-align: left;
   vertical-align: middle;
+  transition:background-color 0.5s;
+  padding:10px
+}
+
+.zone-button:hover {
+  background-color: lightblue;
+  color: black;
 }
 
