@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import "../css/raffles.css"
+import Footer from "../components/Footer";
 
 const Raffles = () => {
     const [currentraffles] = useState([
@@ -40,6 +41,7 @@ const Raffles = () => {
                     </div>
                 ))}
             </div>
+            <Footer />   
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import "../css/tickets.css"
+import Footer from "../components/Footer";
 
 const Tickets = () => {
     const [currenttickets] = useState([
@@ -40,6 +41,7 @@ const Tickets = () => {
                     </div>
                 ))}
             </div>
+            <Footer />   
         </div>
     );
 };
