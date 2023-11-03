@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/main.css";
 import "../css/poster.css"
+import { Link } from "react-router-dom"; 
 
 export const Main = () => {
     return (
@@ -10,12 +11,15 @@ export const Main = () => {
             </div>
             <div className="row">
                 {/* poster 1 */}
+                <Link to="/seatmap">
                 <div className="poster">
                     <div className="name">
                         Taylor Swift: The Eras Tour
                     </div>
                 </div>
+                </Link>
                 {/* poster 2 */}
+                <Link to="/seatmap">
                 <div className="poster-2">
                     <div className="name">
                         <>
@@ -23,8 +27,9 @@ export const Main = () => {
                         </>
                     </div>
                 </div>
-
+                </Link>
                 {/* poster 3 */}
+                <Link to="/seatmap">
                 <div className="poster-3">
                     <div className="name">
                         <>
@@ -32,8 +37,7 @@ export const Main = () => {
                         </>
                     </div>
                 </div>
-                {/* <img className="account-circle" alt="Account circle" src="account-circle.png" />
-          <img className="help" alt="Help" src="help.png" /> */}
+                </Link>
             </div>
         </div>
     );
