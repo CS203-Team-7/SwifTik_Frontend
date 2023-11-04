@@ -11,16 +11,30 @@ export const Register = () => {
     const [dateOfBirth, setDateOfBirth] = useState('');
 
     const handleSubmit = (e) => {
+        // If any of the fields are empty, we will alert the user.
+        if(!email || !password || !passwordConfirmation || !phoneNumber || !dateOfBirth){
+            alert("Please fill all the fields");
+            return;
+        }
         e.preventDefault();
         if(password !== passwordConfirmation){
             alert("Passwords do not match");
+            // If the passwords do not match, we empty the password and passwordConfirmation fields.
+            setPassword('');
+            setPasswordConfirmation('');
             return;
         }
         // Here we will call the register API endpoint and then store the token in local storage.
         register(email, password, dateOfBirth, phoneNumber)
             .then((res) => {
+                console.log(res);
                 // After successful registration, we will navigate the user to the OTP page.
                 navigate("/otp");
+            }).catch((err) => {
+                if(err.response.status === 400){
+                    console.log(err.response.data);
+                    alert(err.response.data);
+                }
             })
     }
     
