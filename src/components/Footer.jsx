@@ -16,13 +16,7 @@ const Footer = () => {
                 <FaInstagram />
             </div>
             <div className="help-icon" onClick={handleHelpClick}>
-                <FaQuestionCircle title="
-                How to register for raffle
-                1.Click on an event
-                2.Click on the zone
-                3.Check the raflle details and click on register
-                4.Wait until results have been announced
-                " />
+                <FaQuestionCircle />
             </div>
         </footer>
     );

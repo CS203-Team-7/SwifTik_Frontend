@@ -1,44 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/main.css";
 import "../css/poster.css"
 import { Link } from "react-router-dom"; 
+import { getEvents } from "../services/Events";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export const Main = () => {
+    const navigate = useNavigate();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [events, setEvents] = useState([]);
+
     return (
         <div className="event-page">
         <div className="label">
                 <h3>Current events</h3>
-            </div>
-            <div className="row">
-                {/* poster 1 */}
-                <Link to="/seatmap">
-                <div className="poster">
-                    <div className="name">
-                        Taylor Swift: The Eras Tour
-                    </div>
-                </div>
-                </Link>
-                {/* poster 2 */}
-                <Link to="/seatmap">
-                <div className="poster-2">
-                    <div className="name">
-                        <>
-                            Ed Sheeran: +–=÷x Tour
-                        </>
-                    </div>
-                </div>
-                </Link>
-                {/* poster 3 */}
-                <Link to="/seatmap">
-                <div className="poster-3">
-                    <div className="name">
-                        <>
-                            Harry Styles: Love On Tour
-                        </>
-                    </div>
-                </div>
-                </Link>
-            </div>
+         </div>
         </div>
     );
 };
