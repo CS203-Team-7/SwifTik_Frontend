@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "../css/main.css";
 import "../css/poster.css"
-import { Link } from "react-router-dom"; 
 import { getEvents } from "../services/Events";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
