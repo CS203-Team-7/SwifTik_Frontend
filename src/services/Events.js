@@ -6,9 +6,6 @@ const API_URL = "http://localhost:8080/events";
 export const getEvents = async () => {
     return await axios.get(API_URL, {
         headers: {
-            Accept: "application/json",
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origins': '*',
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         }
     });
