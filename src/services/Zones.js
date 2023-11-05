@@ -23,8 +23,10 @@ export const createZone = async (id, zoneCapacity, zoneName, zoneDate, ticketPri
     });
 }
 
-export const updateZone = async (id, zoneId) => {
-    return await axios.put(API_URL + "/" + id + "zone=" + zoneId + "/preRegister",{
+export const preRegister = async (email, id, zoneId) => {
+    return await axios.put(API_URL + "/" + id + "/zone=" + zoneId + "/preRegister",{
+        email
+    },{
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         }

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const EventCard = ({key, event, counter}) => {
     return (
         <div>
-            <Link to="/seatmap">
+            <Link to={`/seatmap/${counter}`}>
                 <div className='box'>
                     {counter % 2 === 0 || key === 0 ? 
                         <>

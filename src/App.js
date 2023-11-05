@@ -21,7 +21,7 @@ function App() {
         <Route path="/otp" element={<OtpPage />} />
         <Route path="/raffles" element={<Raffles />} />
         <Route path="/tickets" element={<Tickets />} />
-        <Route path="/seatmap" element={<SeatMap />} />
+        <Route path="/seatmap/:id" element={<SeatMap />} />
       </Routes>
     </div>
   );
