@@ -2,22 +2,58 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import CustomAlert from "../components/CustomAlert";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router";
+import { getZonesForEvent } from "../services/Zones";
+import { useEffect } from "react";
+import { useParams } from "react-router";
+import { getEvent } from "../services/Events";
 
 const SeatMap = () => {
-    const [availableZones] = useState([
-        {
-            Zone: 'Alpha',
-            Price: '$200'
-        },
-        {
-            Zone: 'Bravo',
-            Price: '$100'
-        },
-        {
-            Zone: 'Charlie',
-            Price: '$50'
-        },
-    ]);//temporary hardcoded data
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [zones, setZones] = useState([]);
+    const [event, setEvent] = useState([]);
+
+    // API call to get event
+    useEffect(() => {
+        localStorage.getItem("token") ? setIsAuthenticated(true) : setIsAuthenticated(false);
+        console.log(isAuthenticated);
+        if(isAuthenticated) {
+            getEvent(id).then((response) => {
+                console.log(response.data);
+                setEvent(response.data);
+            }).catch((error) => {
+                if(error.response.status === 401){
+                    alert("Your session has expired. Please login again.");
+                    localStorage.removeItem("token");
+                    setIsAuthenticated(false);
+                    navigate("/login");
+                }
+                console.log(error.response.data);
+            })
+        }
+    }, [isAuthenticated, navigate, id]);
+
+    // API call to get zones
+    useEffect(() => {
+        localStorage.getItem("token") ? setIsAuthenticated(true) : setIsAuthenticated(false);
+        if(isAuthenticated) {
+            getZonesForEvent(id).then((response) => {
+                console.log(response.data);
+                setZones(response.data);
+            }).catch((error) => {
+                if(error.response.status === 401){
+                    alert("Your session has expired. Please login again.");
+                    localStorage.removeItem("token");
+                    setIsAuthenticated(false);
+                    navigate("/login");
+                }
+                console.log(error.response.data);
+            })
+        }
+    }, [isAuthenticated, navigate, id]);
+
 
     const [selectedZone, setSelectedZone] = useState(null);
 
@@ -33,25 +69,25 @@ const SeatMap = () => {
         <div className="seatmap">
             <Header />
             <div className="seatmap-heading">
-                <h1>Seat Map</h1>
+                <h1>Seat Map - {event.eventName}</h1>
             </div>
             <div className="seatmap-container">
             <img style={{ width: 500, height: 600 }}src="https://www.sportshub.com.sg/sites/default/files/2023-07/NST-TS-seatmap-VIP-V4.jpg" alt="seatmap"/>
             </div>
             <div className="zone-buttons">
-                {availableZones.map((zone, index) => (
+                {zones.map((zone) => (
                     <button
-                        key={index}
+                        key={zone.zoneId}
                         className="zone-button"
                         onClick={() => handleZoneButtonClick(zone)}
                     >
-                        <span className="zone-name">{zone.Zone}</span>
-                        <br></br><span className="price">{zone.Price}</span>
+                        <span className="zone-name">{zone.zoneName}</span>
+                        <br></br><span className="price">{zone.ticket_price}</span>
                     </button>
                 ))}
             </div>
             {selectedZone && (
-                <CustomAlert zone={selectedZone} onClose={handleCloseAlert} />
+                <CustomAlert eventId={id} zone={selectedZone} onClose={handleCloseAlert} />
             )}
             <Footer /> 
         </div>

@@ -13,7 +13,18 @@ const OtpPage = () => {
         // Here we will call the OTP API endpoint and then navigate the user to the login page.
         verifyOTP(email, otp)
             .then((res) => {
-                navigate("/");
+                if(res.data.startsWith("Success!")){
+                    navigate("/login");
+                }  else {
+                    alert(res.data);
+                    setOtp('');
+                    return;
+                }
+            }).catch((err) => {
+                if(err.response.status === 400){
+                    console.log(err.response.data);
+                    alert(err.response.data);
+                }
             })
     }
   

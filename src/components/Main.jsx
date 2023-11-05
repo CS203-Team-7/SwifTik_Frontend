@@ -1,44 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/main.css";
 import "../css/poster.css"
-import { Link } from "react-router-dom"; 
+import { getEvents } from "../services/Events";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import EventCard from "./EventCard";
 
 export const Main = () => {
+    const navigate = useNavigate();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [events, setEvents] = useState([]);
+
+    useEffect(() => {
+        localStorage.getItem("token") ? setIsAuthenticated(true) : setIsAuthenticated(false);
+        if(isAuthenticated) {
+            getEvents().then((response) => {
+                console.log(response.data);
+                setEvents(response.data);
+            }).catch((error) => {
+                if(error.response.status === 401){
+                    alert("Your session has expired. Please login again.");
+                    localStorage.removeItem("token");
+                    setIsAuthenticated(false);
+                    navigate("/login");
+                }
+                console.log(error.response.data);
+            })
+        }
+    }, [isAuthenticated])
+
+
     return (
         <div className="event-page">
         <div className="label">
                 <h3>Current events</h3>
-            </div>
             <div className="row">
-                {/* poster 1 */}
-                <Link to="/seatmap">
-                <div className="poster">
-                    <div className="name">
-                        Taylor Swift: The Eras Tour
-                    </div>
-                </div>
-                </Link>
-                {/* poster 2 */}
-                <Link to="/seatmap">
-                <div className="poster-2">
-                    <div className="name">
-                        <>
-                            Ed Sheeran: +–=÷x Tour
-                        </>
-                    </div>
-                </div>
-                </Link>
-                {/* poster 3 */}
-                <Link to="/seatmap">
-                <div className="poster-3">
-                    <div className="name">
-                        <>
-                            Harry Styles: Love On Tour
-                        </>
-                    </div>
-                </div>
-                </Link>
+            {events.map((event) => {
+                        return (
+                            <EventCard key={event.eventId} event={event} counter={event.eventId} />
+                        )
+                    })}
             </div>
+                
+        </div>
         </div>
     );
 };

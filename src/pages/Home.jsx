@@ -9,7 +9,7 @@ const Home = () => {
     <div className="home">
       <Header />    
         <Main />
-        <Footer />    
+      <Footer />    
     </div>
   );
 }
