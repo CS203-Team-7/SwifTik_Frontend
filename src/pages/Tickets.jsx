@@ -1,25 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import "../css/tickets.css"
 import Footer from "../components/Footer";
+import jwtDecode from "jwt-decode";
+import { getTicketByUser } from "../services/Tickets"
+import { useNavigate } from "react-router";
 
 const Tickets = () => {
-    const [currenttickets] = useState([
-        {
-            Zone: '1',
-            EventDate: '03/03/2024',
-            TicketID: '23',
-            Price: '$108',
-            Picture: 'https://upload.wikimedia.org/wikipedia/en/3/33/The_Eras_Tour_poster.jpg'
-        },
-        {
-            Zone: '2',
-            EventDate: '03/06/2025',
-            TicketID: '623',
-            Price: '$108',
-            Picture: 'https://upload.wikimedia.org/wikipedia/en/d/d6/Taylor_Swift_The_Eras_Tour_film_promotional_poster.png'
-        },
-    ]);//temporary hardcoded data
+    const navigate = useNavigate();
+    const [currenttickets, setCurrenttickets] = useState([]);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    // API call to get tickets
+    useEffect(() => {
+        // Check if user is authenticated
+        localStorage.getItem("token") ? setIsAuthenticated(true) : setIsAuthenticated(false);
+        // Get email from token
+        const token = localStorage.getItem("token");
+        const decoded = jwtDecode(token);
+        const email = decoded.sub;
+        console.log(email);
+        console.log(isAuthenticated);
+
+        // Get tickets for user
+        if(isAuthenticated) {
+            getTicketByUser(email).then((response) => {
+                console.log(response.data);
+                setCurrenttickets(response.data);
+            }).catch((error) => { 
+                if(error.response.status === 401){
+                    alert("Your session has expired. Please login again.");
+                    localStorage.removeItem("token");
+                    setIsAuthenticated(false);
+                    navigate("/login");
+                }
+                console.log(error.response.data);
+                alert(error.response.data)
+            })
+        }
+    }, [isAuthenticated])
 
 
     return (
@@ -31,12 +50,9 @@ const Tickets = () => {
             <div className="row">
                 {currenttickets.map((ticket, index) => (
                     <div className="ticket-container" key={index}>
-                        <img src={ticket.Picture} style={{ width: '258px', height: '367px' }} alt="ticket" />
-                        <div className="ticket-info"> {/*this is the info that will be displayed on the card when hovering*/}
-                            <p>Zone: {ticket.Zone}</p>
-                            <p>Event Date: {ticket.EventDate}</p>
-                            <p>Ticket ID: {ticket.TicketID}</p>
-                            <p>Price: {ticket.Price}</p>
+                        <div> {/*this is the info that will be displayed on the card when hovering*/}
+                        <img src='https://upload.wikimedia.org/wikipedia/en/3/33/The_Eras_Tour_poster.jpg' alt="event" />
+                            <p>{ticket.zonename}</p>
                         </div>
                     </div>
                 ))}
