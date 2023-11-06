@@ -119,7 +119,8 @@ const SeatMap = () => {
                             onClick={() => handleZoneButtonClick(zone)}
                         >
                             <span className="zone-name">{zone.zoneName}</span>
-                            <br></br><span className="price">{zone.ticket_price}</span>
+                            <br></br><span className="price">{zone.ticketsLeft} seats left</span>
+                            <br></br><span className="price">${zone.ticket_price}</span>
                         </button>
                         <button className="purchase" onClick={() => handlePurchase(zone)}>
                             Purchase Ticket

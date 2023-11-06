@@ -1,26 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import "../css/raffles.css"
 import Footer from "../components/Footer";
+import jwtDecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+import { getJoinedZones } from "../services/Zones";
 
 const Raffles = () => {
-    const [currentraffles] = useState([
-        {
-            Zone: '1',
-            EventDate: '03/03/2024',
-            RaffleNumber: '2',
-            Status: 'Ongoing',
-            Picture: 'https://upload.wikimedia.org/wikipedia/en/3/33/The_Eras_Tour_poster.jpg'
-        },
-        {
-            Zone: '2',
-            EventDate: '03/06/2025',
-            RaffleNumber: '6',
-            Status: 'Ongoing',
-            Picture: 'https://res.klook.com/image/upload/x_0,y_32,w_420,h_588,c_crop/c_scale,w_360/v1698305850/events_admin/vedhrre7fvupnnq2m8wd.jpg'
-        },
-    ]);//temporary hardcoded data
+    const navigate = useNavigate();
+    const [isAuthenticated, setisAuthenticated] = useState(false);
+    const [currentraffles, setCurrentRaffles] = useState([]);//temporary hardcoded data
+    const [email, setEmail] = useState("");
 
+    useEffect(() => {
+        handleShowRaffle();
+    });
+
+    const handleShowRaffle = () => {
+        //Get email from token
+        const token = localStorage.getItem("token");
+        const user = jwtDecode(token);
+        setEmail(user.sub);
+        console.log(email);
+
+        // Check if authenticated:
+        localStorage.getItem("token") ? setisAuthenticated(true) : setisAuthenticated(false);
+
+        //API call to get joined zones
+        if(isAuthenticated) {
+            getJoinedZones(email).then((response) => {
+                console.log(response.data);
+                setCurrentRaffles(response.data);
+            }).catch((error) => {
+                if(error.response.status === 401){
+                    alert("Your session has expired. Please login again.");
+                    localStorage.removeItem("token");
+                    setisAuthenticated(false);
+                    navigate("/login");
+                }
+                console.log(error.response);
+            })
+        }
+    }
 
     return (
         <div className="raffles">
@@ -31,12 +52,8 @@ const Raffles = () => {
             <div className="row">
                 {currentraffles.map((raffle, index) => (
                     <div className="raffle-container" key={index}>
-                        <img src={raffle.Picture} style={{ width: '258px', height: '367px' }} alt="raffle" />
+                        <img src='https://res.klook.com/image/upload/x_0,y_32,w_420,h_588,c_crop/c_scale,w_360/v1698305850/events_admin/vedhrre7fvupnnq2m8wd.jpg' style={{ width: '258px', height: '367px' }} alt="raffle" />
                         <div className="raffle-info"> {/*this is the info that will be displayed on the raffle card when hovering*/}
-                            <p>Zone: {raffle.Zone}</p>
-                            <p>Event Date: {raffle.EventDate}</p>
-                            <p>Raffle Number: {raffle.RaffleNumber}</p>
-                            <p>Status: {raffle.Status}</p>
                         </div>
                     </div>
                 ))}

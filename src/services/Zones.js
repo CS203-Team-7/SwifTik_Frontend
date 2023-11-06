@@ -32,3 +32,11 @@ export const preRegister = async (email, id, zoneId) => {
         }
     });
 }
+
+export const getJoinedZones = async (email) => {
+    return await axios.get("http://localhost:8080/" + email +  "/joinedZones",{
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    });
+}
