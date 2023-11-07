@@ -4,7 +4,7 @@ import jwtDecode from "jwt-decode";
 // Let's create the API call to login the user
 // Remember to store the token in the local storage when using the login API call
 export const login = async (email, password) => {
-        return await axios.post("http://localhost:8080/auth/signin", {
+        return await axios.post("http://13.215.177.151:8080/auth/signin", {
             email,
             password
         });
@@ -13,7 +13,7 @@ export const login = async (email, password) => {
 
 // Let's create the API call to register the user
 export const register = async (email, password, dateOfBirth, phoneNumber) => {
-        return await axios.post("http://localhost:8080/auth/signup", {
+        return await axios.post("http://13.215.177.151:8080/auth/signup", {
             email,
             password,
             dateOfBirth,
@@ -24,7 +24,7 @@ export const register = async (email, password, dateOfBirth, phoneNumber) => {
 
 // Let's create the API call to do the OTP verification
 export const verifyOTP = async (email, otpNumber) => {
-        return await axios.post("http://localhost:8080/otp/validate", {
+        return await axios.post("http://13.215.177.151:8080/otp/validate", {
             email,
             otpNumber
         }); 

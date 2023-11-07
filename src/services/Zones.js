@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/events";
+const API_URL = "http://13.215.177.151:8080/events";
 
 export const getZonesForEvent = async (id) => {
     return await axios.get(API_URL + "/" + id + "/zones", {
