@@ -34,4 +34,8 @@
   .ticket-container:hover .ticket-info {
     display: block;
   }
+
+  .ticket-image {
+    margin-right: 25px;
+  }
   

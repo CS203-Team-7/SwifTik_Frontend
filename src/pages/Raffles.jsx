@@ -68,7 +68,7 @@ const Raffles = () => {
         <div className="raffles">
             <Header />
             <div className="row heading">
-                <h3>Current Raffles</h3>
+                <h3>Ongoing Raffles</h3>
             </div>
             <div className="row">
                 {currentraffles.map((raffle, index) => (

@@ -51,7 +51,7 @@ const Tickets = () => {
                 {currenttickets.map((ticket, index) => (
                     <div className="ticket-container" key={index}>
                         <div> {/*this is the info that will be displayed on the card when hovering*/}
-                        <img src='https://upload.wikimedia.org/wikipedia/en/3/33/The_Eras_Tour_poster.jpg' alt="event" />
+                        <img src='https://upload.wikimedia.org/wikipedia/en/3/33/The_Eras_Tour_poster.jpg' alt="event" className="ticket-image" />
                             <p>{ticket.zonename}</p>
                         </div>
                     </div>
