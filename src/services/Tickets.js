@@ -19,8 +19,19 @@ export const getTicket = async (id) => {
     });
 }
 
-export const purchaseTicket = async (id, zoneId) => {
-    return await axios.put(API_URL + "/purchase/eventId=" + id + "/zoneId=" + zoneId, {
+export const purchaseTicket = async (email, id, zoneId) => {
+    return await axios.post(API_URL + "/purchase/eventId=" + id + "/zoneId=" + zoneId, {
+        email
+    },{
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    })
+}
+
+export const getTicketByUser = async (email) => {
+    return await axios.get(API_URL + "/user/" + email, 
+    {
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         }
