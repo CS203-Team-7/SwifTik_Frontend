@@ -1,7 +1,15 @@
 import React from "react";
 import "../css/header.css";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+    const navigate = useNavigate();
+
+    const handleLogOut = () => {
+        localStorage.removeItem("token");
+        navigate("/");
+    }
+
     return (
         <div className="header">
             <div className="logo">
@@ -15,7 +23,7 @@ const Header = () => {
                 </ul>
             </nav>
             <div className="search">
-                <input type="text" placeholder="Search" />
+                <button className="button-6" onClick={handleLogOut}>Logout</button>
             </div>
         </div> //add login bar ltr
     );

@@ -40,3 +40,11 @@ export const getJoinedZones = async (email) => {
         }
     });
 }
+
+export const getLinkedEvent = async (id) => {
+    return await axios.get("http://localhost:8080/zone=" + id + "/linkedEvent",{
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    });
+}

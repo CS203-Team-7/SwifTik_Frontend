@@ -34,4 +34,10 @@
   .raffle-container:hover .raffle-info {
     display: block;
   }
+
+  .raffle-image {
+    width: 258px;
+    height: 367px;
+    margin-right: 25px;
+  }
   
