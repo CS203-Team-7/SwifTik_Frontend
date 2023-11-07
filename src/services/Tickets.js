@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // constants:
-const API_URL = "http://13.215.177.151:8080/tickets";
+const API_URL = "http://localhost:8080/tickets";
 
 export const getTickets = async () => {
     return await axios.get(API_URL, {
